@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-class UserService
+class PostsService
 {
 
 }
