@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Album;
+use App\Models\AlbumPhoto;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,10 +15,17 @@ class AlbumsPhotosTable extends Migration
      */
     public function up()
     {
-        Schema::create('albums_photos', function (Blueprint $table) {
+        Schema::create(AlbumPhoto::TABLE, function (Blueprint $table) {
             $table->id();
-            $table->string('photo');
-            $table->bigInteger('album_id');
+
+            $table->string(AlbumPhoto::TITLE);
+            $table->string(AlbumPhoto::THUMBNAIL_URL);
+            $table->string(AlbumPhoto::URL);
+            $table->unsignedBigInteger(AlbumPhoto::ALBUM_ID);
+            $table->foreign(AlbumPhoto::ALBUM_ID)->references(Album::ID)
+                ->on(Album::TABLE)
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

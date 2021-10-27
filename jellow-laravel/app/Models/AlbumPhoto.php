@@ -5,17 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class AlbumPhoto extends Model
 {
     use HasFactory;
 
-    const TABLE = 'posts';
+    protected $table = 'albums_photos';
 
-    const ID = 'id';
+    const TABLE = 'albums_photos';
+
     const TITLE = 'title';
-    const BODY = 'body';
-    const USER_ID = 'user_id';
+    const URL = 'url';
+    const THUMBNAIL_URL = 'thumbnail_url';
+    const ALBUM_ID = 'album_id';
 
     public $timestamps = false;
-
 }

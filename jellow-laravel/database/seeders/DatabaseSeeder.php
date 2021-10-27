@@ -13,8 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        return [
-            UsersSeeder::class
-        ];
+        $this->call(UsersSeeder::class);
+        $this->call(AlbumsSeeder::class);
+        $this->call(PostsSeeder::class);
+        $this->call(AlbumPhotosSeeder::class);
+        $this->call(CommentsSeeder::class);
     }
 }

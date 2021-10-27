@@ -5,17 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class FavoriteAlbum extends Model
 {
     use HasFactory;
 
-    const TABLE = 'posts';
+    protected $table = 'favourite_albums';
 
-    const ID = 'id';
-    const TITLE = 'title';
-    const BODY = 'body';
+    const ALBUM_ID = 'album_id';
     const USER_ID = 'user_id';
 
     public $timestamps = false;
-
 }

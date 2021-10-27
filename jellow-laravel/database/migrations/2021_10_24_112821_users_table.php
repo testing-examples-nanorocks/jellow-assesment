@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,11 +16,11 @@ class UsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('username')->unique();
-            $table->string('email')->unique();
-            $table->string('name')->unique();
-            $table->string('website');
-            $table->string('image');
+            $table->string(User::USERNAME)->unique();
+            $table->string(User::EMAIL)->unique();
+            $table->string(User::NAME);
+            $table->string(User::WEBSITE);
+            $table->string(User::IMAGE)->nullable();
         });
     }
 

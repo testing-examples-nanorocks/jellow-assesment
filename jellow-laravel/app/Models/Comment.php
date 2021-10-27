@@ -5,17 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Comment extends Model
 {
     use HasFactory;
 
-    const TABLE = 'posts';
+    protected $table = 'posts_comments';
 
-    const ID = 'id';
-    const TITLE = 'title';
+    const TABLE = 'posts_comments';
+
+    const ID = 'ID';
+    const NAME = 'name';
+    const EMAIL = 'email';
     const BODY = 'body';
-    const USER_ID = 'user_id';
+    const POST_ID = 'post_id';
 
     public $timestamps = false;
-
 }
