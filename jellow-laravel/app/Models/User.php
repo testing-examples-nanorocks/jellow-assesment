@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class User extends Authenticatable
 {
@@ -35,6 +36,17 @@ class User extends Authenticatable
         self::WEBSITE,
         self::IMAGE
     ];
+
+    public function allowedFilters(array $params)
+    {
+        return QueryBuilder::for(self::class)
+            ->allowedFilters($params);
+    }
+
+    public function toDoes(array $params, int $id)
+    {
+        return QueryBuilder::for(Todo::class)->allowedFilters($params)->where(Todo::USER_ID, $id);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

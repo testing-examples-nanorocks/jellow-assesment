@@ -15,7 +15,7 @@ class FavoriteAlbumsTable extends Migration
      */
     public function up()
     {
-        Schema::create('favorite_albums', function (Blueprint $table) {
+        Schema::create(FavoriteAlbum::TABLE, function (Blueprint $table) {
             $table->unsignedBigInteger(FavoriteAlbum::USER_ID);
             $table->unsignedBigInteger(FavoriteAlbum::ALBUM_ID);
 

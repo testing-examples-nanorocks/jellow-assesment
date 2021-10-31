@@ -11,6 +11,9 @@ class Todo extends Model
 
     protected $table = 'to_does';
 
+    const TABLE = 'to_does';
+
+    const ID = 'id';
     const TITLE = 'title';
     const COMPLETED = 'completed';
     const USER_ID = 'user_id';

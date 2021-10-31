@@ -18,4 +18,8 @@ class Post extends Model
 
     public $timestamps = false;
 
+    public function comments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Comment::class, Comment::POST_ID);
+    }
 }

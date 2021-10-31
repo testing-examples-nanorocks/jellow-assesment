@@ -15,7 +15,7 @@ class TodoesTable extends Migration
      */
     public function up()
     {
-        Schema::create('to_does', function (Blueprint $table) {
+        Schema::create(Todo::TABLE, function (Blueprint $table) {
             $table->id();
             $table->string(Todo::TITLE);
             $table->boolean(Todo::COMPLETED)->default(false);
