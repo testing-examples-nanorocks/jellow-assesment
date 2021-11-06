@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Album;
 use App\Models\FavoriteAlbum;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
@@ -26,11 +27,10 @@ class FavoriteAlbumsTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->foreign(FavoriteAlbum::ALBUM_ID)->references(User::ID)
-                ->on(User::TABLE)
+            $table->foreign(FavoriteAlbum::ALBUM_ID)->references(Album::ID)
+                ->on(Album::TABLE)
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-
         });
     }
 

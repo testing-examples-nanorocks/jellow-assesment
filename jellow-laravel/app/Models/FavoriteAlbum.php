@@ -24,6 +24,6 @@ class FavoriteAlbum extends Model
 
     public function album(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
-        return $this->hasOne(Album::class, Album::ID, self::ALBUM_ID);
+        return $this->hasOne(Album::class, Album::ID, self::ALBUM_ID)->with('photo');
     }
 }

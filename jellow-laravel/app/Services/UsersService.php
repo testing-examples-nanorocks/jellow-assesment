@@ -9,16 +9,17 @@ use Spatie\QueryBuilder\QueryBuilder;
 
 class UsersService
 {
+
     /**
      * Handle all users + filter by username and email
-     * ex. ?filter[username]=Samantha
+     * ex. ?filter[name]=Samantha
      * ex. ?filter[email]=name@email.com
      *
      * @return Collection
      */
     public function filterUsers(): Collection
     {
-        return User::allowedFilters([User::USERNAME, User::EMAIL])->get();
+        return User::allowedFilters([User::NAME, User::EMAIL])->get();
     }
 
     /**
