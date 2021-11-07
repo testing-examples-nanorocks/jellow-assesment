@@ -48,4 +48,6 @@ features:
   - You're done. Try to access the API on http://jellow.repo   
 
 ## For Vue App 
-to be continued ...
+ - Navigate to the root of the vueJS app
+ - run: `npm i`
+ - run: `npm run serve`
