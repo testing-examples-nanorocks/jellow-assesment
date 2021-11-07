@@ -51,3 +51,5 @@ features:
  - Navigate to the root of the vueJS app
  - run: `npm i`
  - run: `npm run serve`
+ - open http://localhost:8080/
+ - done :)
