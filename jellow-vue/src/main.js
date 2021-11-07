@@ -15,6 +15,10 @@ Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 
+import infiniteScroll from 'vue-infinite-scroll'
+
+Vue.use(infiniteScroll)
+
 new Vue({
   router,
   render: h => h(App)
