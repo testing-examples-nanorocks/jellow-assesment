@@ -1,31 +1,13 @@
 <template>
   <b-container class="details pt-5" id="details">
-    <b-link :to="{ path: `/users/${this.userId}/todoes` }" href="#">Todoes</b-link>
-    <div>
-      <b-card>
-        <h1>User details</h1>
-        <template>
-          <b-card-text>
-            <h4>{{ user.name }}</h4>
-            <h6>{{ user.email }}</h6>
-            id: {{ user.id }}
-            <br>
-            username: {{ user.username }}
-            <br>
-            website: {{ user.website }}
-          </b-card-text>
-        </template>
-      </b-card>
-    </div>
+    <UserInfo :user="user"></UserInfo>
     <br>
-
     <div>
       <b-card class="shadow rounded-3">
         <b-card-text>
           <b-row>
             <b-col>
               <h1>Albums</h1>
-
               <b-row>
                 <div>
                   <b-form inline>
@@ -83,34 +65,14 @@
         </b-card-text>
       </b-card>
     </div>
-
-    <div style="padding-top: 20px;">
-      <b-card class="shadow rounded-3">
-        <b-card-text>
-          <b-row>
-            <b-col>
-              <h1>Posts</h1>
-              <b-row>
-                <b-col md="2" v-for='post in posts' :key='post.id' class="d-flex align-items-stretch mb-3">
-                  <b-card
-                      tag="article"
-                      style="margin-bottom: 20px"
-                  >
-                    <h6>{{ post.title }}</h6>
-                    <br>
-                    <small>{{ post.body }}</small>
-                  </b-card>
-                </b-col>
-              </b-row>
-            </b-col>
-          </b-row>
-        </b-card-text>
-      </b-card>
-    </div>
+    <Posts :posts="posts"></Posts>
   </b-container>
 </template>
 
 <script>
+import UserInfo from "../components/UserInfo";
+import Posts from "../components/Posts";
+
 export default {
   name: 'UserDetails',
   data() {
@@ -132,7 +94,10 @@ export default {
       filterAlbumsByTitle: ''
     }
   },
-  components: {},
+  components: {
+    Posts,
+    UserInfo
+  },
   methods: {
     getUser: function () {
       fetch(this.userUrl.replace(':id', this.userId)).then(res => res.json()).then(data => {
@@ -217,7 +182,6 @@ export default {
     this.getUser();
     this.getFavAlbums();
     this.getPosts();
-  }
-  ,
+  },
 }
 </script>
